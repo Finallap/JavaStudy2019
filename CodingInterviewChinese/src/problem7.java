@@ -1,21 +1,4 @@
 public class problem7 {
-    public class TreeNode {
-        public int data;
-        public TreeNode left;
-        public TreeNode right;
-
-        //构造带有参数的构造方法
-        public TreeNode(int data) {
-            this.data = data;
-        }
-
-        //重写toString方法
-        public String toString() {
-            return "TreeNode [data=" + data + ", left=" + left + ", right=" + right
-                    + "]";
-        }
-    }
-
     //使用前序和中序遍历结果重建二叉树
     public TreeNode reConstructBinaryTree(int[] pre, int[] in) {
         if (pre == null || in == null || pre.length <= 0 || in.length <= 0)
