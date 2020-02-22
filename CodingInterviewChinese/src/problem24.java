@@ -15,4 +15,15 @@ public class problem24 {
 
         return pre;
     }
+
+    public ListNode ReverseList1(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
+
+        ListNode next = head.next;
+        head.next = null;
+        ListNode newHead = ReverseList1(next);
+        next.next = head;
+        return newHead;
+    }
 }
