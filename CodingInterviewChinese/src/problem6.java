@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Stack;
 
 //problem6：链表，从尾到头打印链表
@@ -12,8 +13,9 @@ public class problem6 {
             listNode = listNode.next;
         }
 
-        while (!stack.empty())
+        while (!stack.empty()) {
             result.add(stack.pop());
+        }
 
         return result;
     }
@@ -25,6 +27,22 @@ public class problem6 {
             result.addAll(printListFromTailToHead1(listNode.next));
             result.add(listNode.val);
         }
+        return result;
+    }
+
+    //使用Collections的reverse函数反转
+    public static ArrayList<Integer> printListFromTailToHead2(ListNode listNode) {
+        ArrayList<Integer> result = new ArrayList<>();
+        if (listNode == null) {
+            return result;
+        }
+
+        while (listNode != null) {
+            result.add(listNode.val);
+            listNode = listNode.next;
+        }
+
+        Collections.reverse(result);
         return result;
     }
 
@@ -47,7 +65,7 @@ public class problem6 {
         ln8.next = null;
         //ListNode ln1 = new ListNode();
         //ln1=null;
-        System.out.println(printListFromTailToHead1(ln1));
+        System.out.println(printListFromTailToHead2(ln1));
 //        printListReverseinglyByRecursion(ln1);
 
     }
