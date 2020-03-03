@@ -1,5 +1,7 @@
+package Search;
+
 /**
- * @description: FindKth:查找第k大的数，使用快排思想实现
+ * @description: Search.FindKth:查找第k大的数，使用快排思想实现
  * @date: 2020/3/2 14:08
  * @author: Finallap
  * @version: 1.0

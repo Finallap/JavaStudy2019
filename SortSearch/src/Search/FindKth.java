@@ -1,8 +1,10 @@
+package Search;
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
- * @description: FindKth:查找第k大的数，使用优先队列搭配降序实现
+ * @description: Search.FindKth:查找第k大的数，使用优先队列搭配降序实现
  * @date: 2020/3/2 13:23
  * @author: Finallap
  * @version: 1.0
