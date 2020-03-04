@@ -1,3 +1,5 @@
+package Sort;
+
 public class MergeSort_1 {
     public static void mergeSort(int[] list) {
         if (list.length > 1) {

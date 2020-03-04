@@ -1,12 +1,14 @@
+package Sort;
+
 import java.util.ArrayList;
 
 public class Heap<E extends Comparable> {
     private ArrayList<E> list = new ArrayList<E>();
 
-    public Heap(){
+    public Heap() {
     }
 
-    public Heap(E[] objects){
+    public Heap(E[] objects) {
         for (E object: objects) {
             add(object);
         }
@@ -23,8 +25,7 @@ public class Heap<E extends Comparable> {
                 E temp = list.get(currentIndex);
                 list.set(currentIndex , list.get(parentIndex));
                 list.set(parentIndex, temp);
-            }
-            else
+            } else
                 break;
             currentIndex = parentIndex;
         }
@@ -56,8 +57,7 @@ public class Heap<E extends Comparable> {
                 E temp = list.get(currentIndex);
                 list.set(currentIndex, list.get(maxIndex));
                 list.set(maxIndex, temp);
-            }
-            else break;
+            } else break;
         }
 
         return removeObject;

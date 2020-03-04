@@ -1,12 +1,14 @@
+package Sort;
+
 public class QuickSort {
-    public static void main(String [] args){
-        int[] list = {51,23,55,63,85,45,36,54,25,63,22,52,36,45,78,23,56,45,85,75,96,-65,55,12,-5};
+    public static void main(String[] args) {
+        int[] list = {51, 23, 55, 63, 85, 45, 36, 54, 25, 63, 22, 52, 36, 45, 78, 23, 56, 45, 85, 75, 96, -65, 55, 12, -5};
         quickSort(list);
         for (int value : list)
             System.out.print(value + "\t");
     }
 
-    public static void quickSort(int[] list){
+    public static void quickSort(int[] list) {
         quickSort(list,0,list.length-1);
     }
 
@@ -44,7 +46,6 @@ public class QuickSort {
             list[first] = list[high];
             list[high] = pivot;
             return high;
-        }
-        else return first;
+        } else return first;
     }
 }

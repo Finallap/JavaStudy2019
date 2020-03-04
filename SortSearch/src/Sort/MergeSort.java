@@ -1,11 +1,13 @@
+package Sort;
+
 public class MergeSort {
-    public static void mergeSort(int[] list){
-        if(list.length>1){
-            int[] firstHalf = new int[list.length/2];
-            System.arraycopy(list, 0, firstHalf,0,list.length/2);
+    public static void mergeSort(int[] list) {
+        if (list.length > 1) {
+            int[] firstHalf = new int[list.length / 2];
+            System.arraycopy(list, 0, firstHalf, 0, list.length / 2);
             mergeSort(firstHalf);
 
-            int secondHalfLength = list.length - list.length/2;
+            int secondHalfLength = list.length - list.length / 2;
             int[] secondHalf = new int[secondHalfLength];
             System.arraycopy(list, list.length/2, secondHalf, 0, secondHalfLength);
             mergeSort(secondHalf);
@@ -25,8 +27,7 @@ public class MergeSort {
         while (current1<list1.length && current2<list2.length){
             if(list1[current1] < list2[current2]){
                 temp[current3++] = list1[current1++];
-            }
-            else {
+            } else {
                 temp[current3++] = list2[current2++];
             }
         }
