@@ -1,12 +1,11 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 public class problem46 {
     //回溯法
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> results = new LinkedList<>();
+        List<List<Integer>> results = new ArrayList<>();
 
         //将数组转化为list
         ArrayList<Integer> nums_list = new ArrayList<>();
