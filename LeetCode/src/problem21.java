@@ -1,16 +1,4 @@
 public class problem21 {
-    /**
-     * Definition for singly-linked list.
-     **/
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     //迭代法
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode root = new ListNode(-1);

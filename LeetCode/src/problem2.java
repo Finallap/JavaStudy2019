@@ -1,10 +1,4 @@
 public class problem2 {
-    public class ListNode{
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
-
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummyHead = new ListNode(0);
         ListNode current = dummyHead;
