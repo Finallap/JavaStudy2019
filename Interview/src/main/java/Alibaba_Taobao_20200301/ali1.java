@@ -3,7 +3,7 @@ package Alibaba_Taobao_20200301;
 import java.util.ArrayList;
 
 public class ali1 {
-    private ArrayList<ArrayList<Integer>> results = new ArrayList<>();
+    private final ArrayList<ArrayList<Integer>> results = new ArrayList<>();
 
     public ArrayList<ArrayList<Integer>> Path(TreeNode root, int target) {
         Path(root, target, new ArrayList<>());

@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class ali2 {
-    private HashMap<String, API> map = new HashMap<>();
+    private final HashMap<String, API> map = new HashMap<>();
     int threshold = 0;
 
     public void setThreshold(int threshold) {
