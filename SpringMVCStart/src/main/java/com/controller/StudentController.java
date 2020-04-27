@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @description: StudentController
@@ -36,6 +38,8 @@ public class StudentController {
         modelMap.addAttribute("receivePaper", student.isReceivePaper());
         modelMap.addAttribute("favoriteFramework", student.getFavoriteFramework());
         modelMap.addAttribute("gender", student.getGender());
+        modelMap.addAttribute("favoriteNumber", student.getFavoriteNumber());
+        modelMap.addAttribute("country", student.getCountry());
         return "jsp/result";
     }
 
@@ -47,5 +51,24 @@ public class StudentController {
         webFrameworkList.add("Struts 2");
         webFrameworkList.add("Apache Hadoop");
         return webFrameworkList;
+    }
+
+    @ModelAttribute("numberList")
+    public List<Integer> getNumberList() {
+        List<Integer> numberList = new ArrayList<>();
+        for (int i = 1; i <= 9; i++) {
+            numberList.add(i);
+        }
+        return numberList;
+    }
+
+    @ModelAttribute("countryList")
+    public Map<String, String> getCountryList() {
+        HashMap<String, String> countryList = new HashMap<>(8);
+        countryList.put("US", "United States");
+        countryList.put("CH", "China");
+        countryList.put("SG", "Singapore");
+        countryList.put("MY", "Malaysia");
+        return countryList;
     }
 }

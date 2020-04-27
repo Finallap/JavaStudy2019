@@ -41,9 +41,20 @@
             <td><form:checkboxes path="favoriteFramework" items="${webFrameworkList}"/></td>
         </tr>
         <tr>
-            <td><form:label path="gender">性别：</form:label></td>
+            <td><form:label path="gender">性别</form:label></td>
             <td><form:radiobutton path="gender" value="M" label="男"/></td>
             <td><form:radiobutton path="gender" value="F" label="女"/></td>
+        </tr>
+        <tr>
+            <td><form:label path="favoriteNumber">最喜欢的数字</form:label></td>
+            <td><form:radiobuttons path="favoriteNumber" items="${numberList}"/></td>
+        </tr>
+        <tr>
+            <td><form:label path="country">国家</form:label></td>
+            <td><form:select path="country">
+                <form:option value="NONE" label="请选择..."/>
+                <form:options items="${countryList}"/>
+            </form:select></td>
         </tr>
         <tr>
             <td colspan="2">

@@ -14,6 +14,8 @@ public class Student {
     private boolean receivePaper;
     private String[] favoriteFramework;
     private String gender;
+    private String favoriteNumber;
+    private String country;
 
     public Student() {
         receivePaper = true;
@@ -80,5 +82,21 @@ public class Student {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getFavoriteNumber() {
+        return favoriteNumber;
+    }
+
+    public void setFavoriteNumber(String favoriteNumber) {
+        this.favoriteNumber = favoriteNumber;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

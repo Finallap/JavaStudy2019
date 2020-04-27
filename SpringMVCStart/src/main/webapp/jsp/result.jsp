@@ -48,6 +48,14 @@
         <td>性别</td>
         <td>${(gender=="M"?"男":"女")}</td>
     </tr>
+    <tr>
+        <td>最喜欢的数字</td>
+        <td>${favoriteNumber}</td>
+    </tr>
+    <tr>
+        <td>国家</td>
+        <td>${country}</td>
+    </tr>
 </table>
 </body>
 </html>
