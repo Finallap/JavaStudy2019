@@ -26,6 +26,28 @@
         <td>年龄：</td>
         <td>${age}</td>
     </tr>
+    <tr>
+        <td>密码：</td>
+        <td>${password}</td>
+    </tr>
+    <tr>
+        <td>是否接收论文？</td>
+        <td>${receivePaper}</td>
+    </tr>
+    <tr>
+        <td>喜欢的技术/框架</td>
+        <td>
+            <% String[] favoriteFramework = (String[]) request.getAttribute("favoriteFramework");
+                for (String framework : favoriteFramework) {
+                    out.println(framework);
+                }
+            %>
+        </td>
+    </tr>
+    <tr>
+        <td>性别</td>
+        <td>${(gender=="M"?"男":"女")}</td>
+    </tr>
 </table>
 </body>
 </html>

@@ -10,15 +10,20 @@ public class Student {
     private int id;
     private String name;
     private int age;
+    private String password;
+    private boolean receivePaper;
+    private String[] favoriteFramework;
+    private String gender;
 
     public Student() {
-
+        receivePaper = true;
     }
 
-    public Student(int id, String name, int age) {
+    public Student(int id, String name, int age, String password) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.password = password;
     }
 
     public int getId() {
@@ -43,5 +48,37 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isReceivePaper() {
+        return receivePaper;
+    }
+
+    public void setReceivePaper(boolean receivePaper) {
+        this.receivePaper = receivePaper;
+    }
+
+    public String[] getFavoriteFramework() {
+        return favoriteFramework;
+    }
+
+    public void setFavoriteFramework(String[] favoriteFramework) {
+        this.favoriteFramework = favoriteFramework;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
