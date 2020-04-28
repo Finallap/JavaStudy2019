@@ -19,7 +19,7 @@ public class AnnotationHandler {
     public ModelAndView modelAndViewTest() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("name", "Jack");
-        modelAndView.setViewName("show");
+        modelAndView.setViewName("jsp/show");
         return modelAndView;
     }
 

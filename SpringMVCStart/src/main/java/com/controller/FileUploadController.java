@@ -29,14 +29,14 @@ public class FileUploadController {
     @RequestMapping(value = "/fileUpload", method = RequestMethod.GET)
     public ModelAndView fileUploadPage() {
         FileModel file = new FileModel();
-        return new ModelAndView("jsp/fileUpload", "command", file);
+        return new ModelAndView("fileUpload", "command", file);
     }
 
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     public String fileUpload(@Validated FileModel file, BindingResult result, ModelMap model) throws IOException {
         if (result.hasErrors()) {
             System.out.println("validation errors");
-            return "jsp/fileUpload";
+            return "fileUpload";
         } else {
             System.out.println("Fetching file");
             String uploadPath = context.getRealPath("") + File.separator + "temp" + File.separator;
@@ -44,7 +44,7 @@ public class FileUploadController {
             FileCopyUtils.copy(file.getFile().getBytes(), new File(uploadPath + file.getFile().getOriginalFilename()));
             String fileName = file.getFile().getOriginalFilename();
             model.addAttribute("fileName", fileName);
-            return "jsp/fileUploadSuccess";
+            return "fileUploadSuccess";
         }
     }
 }

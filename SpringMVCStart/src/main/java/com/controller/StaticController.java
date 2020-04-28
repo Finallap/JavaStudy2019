@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class StaticController {
     @RequestMapping("/staticIndex")
     public String staticIndex() {
-        return "jsp/staticIndex";
+        return "staticIndex";
     }
 
     @RequestMapping("/staticPage")

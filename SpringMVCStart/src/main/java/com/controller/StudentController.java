@@ -26,7 +26,7 @@ public class StudentController {
         Student student = new Student();
         student.setFavoriteFramework(new String[]{"Spring MVC", "Struts 2"});
         student.setGender("M");
-        return new ModelAndView("jsp/student", "command", student);
+        return new ModelAndView("student", "command", student);
     }
 
     @RequestMapping(value = "/addStudent", method = RequestMethod.POST)
@@ -40,7 +40,7 @@ public class StudentController {
         modelMap.addAttribute("gender", student.getGender());
         modelMap.addAttribute("favoriteNumber", student.getFavoriteNumber());
         modelMap.addAttribute("country", student.getCountry());
-        return "jsp/result";
+        return "result";
     }
 
     @ModelAttribute("webFrameworkList")
