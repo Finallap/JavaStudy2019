@@ -24,8 +24,13 @@
     <mvc:resources mapping="/html/**" location="/html/"/>
     <mvc:annotation-driven/>
 
+    <!--配置文件上传解析器-->
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+    <!--配置BeanName视图解析器-->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+    <bean class="com.controller.RssFeedViewer" id="rssViewer"/>
 
     <!--配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
