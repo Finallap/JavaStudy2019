@@ -24,6 +24,9 @@
     <mvc:resources mapping="/html/**" location="/html/"/>
     <mvc:annotation-driven/>
 
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
     <!--配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- 视图的路径 -->
