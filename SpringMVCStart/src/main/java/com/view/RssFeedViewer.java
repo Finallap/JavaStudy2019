@@ -1,4 +1,4 @@
-package com.controller;
+package com.view;
 
 import com.bean.RssMessage;
 import com.rometools.rome.feed.rss.Channel;

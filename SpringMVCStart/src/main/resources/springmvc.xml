@@ -30,7 +30,8 @@
 
     <!--配置BeanName视图解析器-->
     <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
-    <bean class="com.controller.RssFeedViewer" id="rssViewer"/>
+    <bean class="com.view.RssFeedViewer" id="rssViewer"/>
+    <bean class="com.view.UserPdfView" id="userSummary"/>
 
     <!--配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
