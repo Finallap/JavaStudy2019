@@ -24,7 +24,7 @@ import java.util.List;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.controller")
+@ComponentScan(basePackages = "com")
 public class HelloWorldRestConfiguration extends WebMvcConfigurationSupport {
     @Override
     protected void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
