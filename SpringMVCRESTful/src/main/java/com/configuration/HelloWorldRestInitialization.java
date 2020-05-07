@@ -1,8 +1,10 @@
 package com.configuration;
 
+import com.filter.CorsFilter;
 import com.filter.EncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.Filter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
@@ -35,5 +37,11 @@ public class HelloWorldRestInitialization extends AbstractAnnotationConfigDispat
                 .addMappingForUrlPatterns(null, false, "/*");
         //必须调用回父类的onStartup方法，否则不会初始化DispatcherServlet
         super.onStartup(servletContext);
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        Filter[] filters = {new CorsFilter()};
+        return filters;
     }
 }
