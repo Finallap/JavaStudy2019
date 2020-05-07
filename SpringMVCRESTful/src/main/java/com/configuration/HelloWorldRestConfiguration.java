@@ -8,9 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
@@ -31,6 +29,26 @@ public class HelloWorldRestConfiguration extends WebMvcConfigurationSupport {
     @Override
     protected void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         configurer.ignoreAcceptHeader(true).defaultContentType(MediaType.TEXT_HTML);
+    }
+
+    /**
+     * 拦截器配置
+     *
+     * @param registry 注册类
+     */
+    @Override
+    protected void addInterceptors(InterceptorRegistry registry) {
+        super.addInterceptors(registry);
+    }
+
+    /**
+     * 静态资源配置
+     *
+     * @param registry 注册类
+     */
+    @Override
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/*").addResourceLocations("/static/");
     }
 
     @Bean
@@ -63,6 +81,7 @@ public class HelloWorldRestConfiguration extends WebMvcConfigurationSupport {
         viewResolver.setViewClass(JstlView.class);
         viewResolver.setPrefix("/jsp/");
         viewResolver.setSuffix(".jsp");
+        viewResolver.setOrder(2);
         return viewResolver;
     }
 }
