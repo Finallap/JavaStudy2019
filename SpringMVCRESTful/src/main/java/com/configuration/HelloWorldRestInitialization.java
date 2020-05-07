@@ -1,6 +1,10 @@
 package com.configuration;
 
+import com.filter.EncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 /**
  * @description: com.configuration.HelloWorldRestInitialization
@@ -23,5 +27,13 @@ public class HelloWorldRestInitialization extends AbstractAnnotationConfigDispat
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        servletContext.addFilter("encodingFilter", EncodingFilter.class)
+                .addMappingForUrlPatterns(null, false, "/*");
+        //必须调用回父类的onStartup方法，否则不会初始化DispatcherServlet
+        super.onStartup(servletContext);
     }
 }
