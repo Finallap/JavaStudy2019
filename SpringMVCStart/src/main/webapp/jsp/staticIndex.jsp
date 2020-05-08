@@ -14,7 +14,7 @@
 <body>
 <h2>Spring Landing Page</h2>
 <p>点击下面的按钮获得一个简单的HTML页面</p>
-<form:form method="GET" action="/SpringMVCStart_war/staticPage">
+<form:form method="GET" action="/SpringMVCStart_war_exploded/staticPage">
     <table>
         <tr>
             <td>
