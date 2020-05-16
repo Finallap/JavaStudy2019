@@ -1,6 +1,6 @@
-package dao;
+package com.dao;
 
-import entity.User;
+import com.entity.User;
 
 import java.util.List;
 
@@ -15,9 +15,11 @@ public interface UserMapper {
 
     int updateUser(User user);
 
-    int deleteUserByUid(int uid);
+    int deleteUserById(int uid);
 
     List<User> listAllUser();
 
-    User queryUserByName(String uname);
+    User findByName(String uname);
+
+    User findById(int uid);
 }

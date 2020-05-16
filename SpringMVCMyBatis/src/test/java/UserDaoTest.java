@@ -1,5 +1,5 @@
-import dao.UserMapper;
-import entity.User;
+import com.dao.UserMapper;
+import com.entity.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -40,7 +40,7 @@ public class UserDaoTest {
                 System.out.println(userSelect.toString());
             }
 
-            userMapper.deleteUserByUid(1);
+            userMapper.deleteUserById(1);
 
             userList = userMapper.listAllUser();
             for (User userSelect : userList) {
