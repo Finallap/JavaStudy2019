@@ -29,7 +29,7 @@ public class UserDaoTest {
             UserMapper userMapper = session.getMapper(UserMapper.class);
 
             User user = new User();
-            user.setUid(1);
+            user.setUid(4);
             user.setUname("Java");
             user.setUsex("female");
 
