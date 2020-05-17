@@ -46,4 +46,16 @@
             </if>
         </trim>
     </insert>
+
+    <select id="findBySid" parameterType="string" resultType="com.entity.Student">
+        select * from student where Sid = #{sid}
+    </select>
+
+    <select id="findBySname" parameterType="string" resultType="com.entity.Student">
+        select * from student where Sid = #{sname}
+    </select>
+
+    <select id="listAll" resultType="com.entity.Student">
+        select * from student
+    </select>
 </mapper>
