@@ -18,6 +18,10 @@ spring:
         max-idle: 8
         max-wait: -1
         min-idle: 1
+  cache:
+    cache-names: redis_cache
+    redis:
+      time-to-live: 60000
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
