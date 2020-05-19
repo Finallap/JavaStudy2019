@@ -5,9 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataAccessException;
-import org.springframework.data.redis.core.RedisOperations;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.SessionCallback;
+import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -87,7 +85,7 @@ public class RedisTemplateTests {
     }
 
     @Test
-    public void hashTYpe() {
+    public void hashType() {
         // redis命令：mset key field value
         redisTemplate.opsForHash().put("person", "name", "张三");
         redisTemplate.opsForHash().put("person", "age", 19);
@@ -161,6 +159,12 @@ public class RedisTemplateTests {
         redisTemplate.opsForSet().add("book", "java", "c++", "python");
         System.out.println(redisTemplate.opsForSet().size("book"));
         System.out.println(redisTemplate.opsForSet().members("book"));
+        System.out.println(redisTemplate.opsForSet().pop("book"));//移除并返回集合中的一个随机元素
+        System.out.println(redisTemplate.opsForSet().members("book"));
+        Cursor<Object> cursor = redisTemplate.opsForSet().scan("book", ScanOptions.scanOptions().build());//返回cursor，遍历set
+        while (cursor.hasNext()) {
+            System.out.println(cursor.next());
+        }
         redisTemplate.delete("book");
     }
 
@@ -168,9 +172,27 @@ public class RedisTemplateTests {
     public void zsetType() {
         redisTemplate.opsForZSet().add("book", "mysql", 1.5);
         redisTemplate.opsForZSet().add("book", "java", 8.5);
-        redisTemplate.opsForZSet().add("book", "html", 10.5);
+        redisTemplate.opsForZSet().add("book", "html", 14);
         Set set = redisTemplate.opsForZSet().range("book", 0, redisTemplate.opsForZSet().size("book") - 1);
         System.out.println(set);
+
+        ZSetOperations.TypedTuple<Object> objectTypedTuple1 = new DefaultTypedTuple<>("jquery", 13.0);
+        ZSetOperations.TypedTuple<Object> objectTypedTuple2 = new DefaultTypedTuple<>("C++", 15.0);
+        Set<ZSetOperations.TypedTuple<Object>> tuples = new HashSet<>();
+        tuples.add(objectTypedTuple1);
+        tuples.add(objectTypedTuple2);
+        System.out.println(redisTemplate.opsForZSet().add("book", tuples));
+        System.out.println(redisTemplate.opsForZSet().range("book", 0, -1));
+        System.out.println(redisTemplate.opsForZSet().rank("book", "mysql"));
+        Cursor<ZSetOperations.TypedTuple<Object>> cursor = redisTemplate.opsForZSet().scan("book", ScanOptions.scanOptions().build());
+        while (cursor.hasNext()) {
+            ZSetOperations.TypedTuple<Object> objectTypedTuple = cursor.next();
+            System.out.println(objectTypedTuple.getValue() + ":" + objectTypedTuple.getScore());
+        }
+        System.out.println(redisTemplate.opsForZSet().range("book", 0, -1));
+        System.out.println(redisTemplate.opsForZSet().rangeByScore("book", 0, 10));
+
+        redisTemplate.delete("book");
     }
 
     @Test
