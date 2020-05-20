@@ -1,4 +1,4 @@
-package com.dao;
+package com.mapper;
 
 import com.entity.User;
 

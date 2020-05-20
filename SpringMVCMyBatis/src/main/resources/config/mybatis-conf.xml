@@ -12,7 +12,7 @@
         <!-- 别名方式1，一个一个的配置 type中放置的是类的全路径，alias中放置的是类别名
         <typeAlias type="com.User" alias="User"/> -->
         <!-- 别名方式2，自动扫描，将JAVA类的类名作为类的类别名 -->
-        <package name="com.dao"/>
+        <package name="com.mapper"/>
     </typeAliases>
 
     <environments default="development">
