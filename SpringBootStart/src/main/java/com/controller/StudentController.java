@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.annotation.Auth;
 import com.entity.Student;
 import com.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ public class StudentController {
         return new ResponseEntity<Student>(student, HttpStatus.OK);
     }
 
+    @Auth(value = "auth_value", name = "auth_name")
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
     public ResponseEntity<List<Student>> listAll() {
         List<Student> list = studentService.listAll();
